@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Salon</title>
+    <link rel="stylesheet" href="{% static 'salon_app/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Welcome to Serenity Salon</h1>
+            <p>Your oasis of beauty and relaxation.</p>
+            <a href="#contact" class="cta-button">Book an Appointment</a>
+        </section>
+
+        <div class="container">
+            <section id="services">
+                <h2>Our Services</h2>
+                {% if services %}
+                    {% for service in services %}
+                        <div class="service-item">
+                            <h3>{{ service.name }}</h3>
+                            <p>{{ service.description }}</p>
+                            <p><strong>Price:</strong> ${{ service.price }}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No services currently available. Please check back later!</p>
+                {% endif %}
+            </section>
+
+            <section id="about">
+                <h2>About Us</h2>
+                <p>Welcome to Serenity Salon, where we believe that beauty and wellness go hand-in-hand. Our team of experienced professionals is dedicated to providing you with the highest quality services in a relaxing and friendly environment. We use only the finest products and techniques to help you look and feel your best. From rejuvenating facials to stylish haircuts and luxurious manicures, we are here to pamper you from head to toe.</p>
+                <p>Our mission is to create a sanctuary where you can escape the stresses of daily life and indulge in a moment of pure serenity. We are passionate about what we do and strive to exceed your expectations with every visit.</p>
+            </section>
+
+            <section id="contact">
+                <h2>Contact Us</h2>
+                <p>Ready to book your appointment or have questions? Get in touch!</p>
+                <p><strong>Phone:</strong> (123) 456-7890</p>
+                <p><strong>Email:</strong> contact@serenitysalon.com</p>
+                <p><strong>Address:</strong> 123 Beauty Lane, Wellness City, ST 45678</p>
+                <p><strong>Hours:</strong><br>
+                    Monday - Friday: 9:00 AM - 7:00 PM<br>
+                    Saturday: 10:00 AM - 6:00 PM<br>
+                    Sunday: Closed
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Serenity Salon. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
